@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BM AI - Bookmark Manager</title>
+
+  <!-- Your provided sun and moon icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" />
+
+  <!-- CSS File -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="theme-toggle">
+    <span class="material-symbols-outlined" id="themeIcon">light_mode</span>
+  </div>
+
+  <div class="container">
+    <h1>Bookmark Manager</h1>
+
+    <div class="add-bookmark">
+      <input type="text" id="bookmarkName" placeholder="Bookmark Name" />
+      <input type="url" id="bookmarkURL" placeholder="Bookmark URL" />
+      <select id="bookmarkCategory">
+        <option value="">Category</option>
+        <option value="Work">Work</option>
+        <option value="Study">Study</option>
+        <option value="Personal">Personal</option>
+      </select>
+      <button onclick="addBookmark()">Add</button>
+    </div>
+
+    <div class="filter-area">
+      <label for="categoryFilter">Filter:</label>
+      <select id="categoryFilter" onchange="filterBookmarks()">
+        <option value="">All</option>
+        <option value="Work">Work</option>
+        <option value="Study">Study</option>
+        <option value="Personal">Personal</option>
+      </select>
+
+      <input type="search" id="searchInput" placeholder="Search..." onkeyup="searchBookmarks()" />
+    </div>
+
+    <ul id="bookmarkList"></ul>
+
+    <button id="exportBtn" onclick="exportBookmarks()">Export Bookmarks</button>
+  </div>
+
+  <!-- Export Modal -->
+  <div id="exportModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <textarea id="modalTextarea" readonly></textarea>
+    </div>
+  </div>
+
+  <!-- JS File -->
+  <script src="script.js"></script>
+</body>
+</html>
