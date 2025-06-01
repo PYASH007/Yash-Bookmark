@@ -1,0 +1,265 @@
+:root {
+  --bg: #f3f1eb;
+  --text: #3e362e;
+  --box: #fff;
+  --primary: #865d36;
+  --accent: #ac8968;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+body.dark {
+  --bg: #1e1e1e;
+  --text: #f5f5f5;
+  --box: #2e2e2e;
+  --primary: #d4a373;
+  --accent: #8d6e63;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  background: var(--box);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px var(--primary);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--primary);
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.theme-toggle .material-symbols-outlined {
+  font-size: 28px;
+  color: white;
+}
+
+/* Add bookmark form */
+.add-bookmark {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.add-bookmark input,
+.add-bookmark select {
+  flex: 1 1 150px;
+  padding: 10px;
+  border: 2px solid var(--primary);
+  border-radius: 5px;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.add-bookmark button {
+  background-color: var(--primary);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.add-bookmark button:hover {
+  background-color: #93785b;
+}
+
+/* Filter area */
+.filter-area {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter-area label {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.filter-area select,
+.filter-area input[type="search"] {
+  padding: 8px;
+  border: 2px solid var(--primary);
+  border-radius: 5px;
+  font-size: 1rem;
+  color: var(--text);
+  flex: 1 1 150px;
+}
+
+/* Bookmark list */
+#bookmarkList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.bookmark-item {
+  background: var(--accent);
+  margin-bottom: 10px;
+  padding: 12px 15px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeIn 0.5s ease;
+}
+
+.bookmark-item a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+.bookmark-item a:hover {
+  text-decoration: underline;
+}
+
+.category-tag {
+  background-color: var(--primary);
+  color: white;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  margin-left: 10px;
+  white-space: nowrap;
+}
+
+.delete-btn {
+  background-color: var(--text);
+  color: var(--accent);
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 15px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #93785b;
+  color: white;
+}
+
+/* Export button */
+#exportBtn {
+  background-color: var(--primary);
+  border: none;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+#exportBtn:hover {
+  background-color: #93785b;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: var(--bg);
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 0 15px var(--primary);
+  position: relative;
+}
+
+.close {
+  color: var(--primary);
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#modalTextarea {
+  width: 100%;
+  height: 200px;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 1rem;
+  color: var(--text);
+  resize: none;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .add-bookmark {
+    flex-direction: column;
+  }
+
+  .filter-area {
+    flex-direction: column;
+  }
+
+  .bookmark-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .delete-btn {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+}
